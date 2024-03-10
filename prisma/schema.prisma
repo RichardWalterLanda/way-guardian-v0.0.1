@@ -12,3 +12,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id      Int       @id @default(autoincrement())
+  name    String
+  country Countries @default(CANADA)
+  trips   Trip[]
+}
+
+model Trip {
+  id            Int             @id @default(autoincrement())
+  user          User            @relation(fields: [tripId], references: [id])
+  tripId        Int             @unique
+  visitedPlaces VisitedPlaces[]
+}
+
+model VisitedPlaces {
+  id     Int    @id @default(autoincrement())
+  places String
+  trips  Trip[]
+}
+
+enum Countries {
+  CANADA
+  RUSSIA
+}

@@ -4,5 +4,23 @@
 
 
 :root {
-    --global-bg: var(hsla(0, 0%, 13%, 0.13));
+    --main-bg-dark: rgb(9, 39, 75);
+    --main-bg-darker: rgb(0, 19, 55);
+    --main-bg-darkest: rgb(0, 0, 35);
+
+    --main-text-light: rgb(255, 255, 205);
+}
+body {
+    @apply flex flex-col tracking-wider min-h-screen;
+    background: linear-gradient(to top right, var(--main-bg-dark), var(--main-bg-darker) , var(--main-bg-darkest) );
+    color: var(--main-text-light);
+}
+.custom-shadow {
+    box-shadow: 6px 0 10px black;
+}
+.navigation-text-shadow {
+    filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+}
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
